@@ -1,0 +1,17 @@
+{
+  "name": "react-vite",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "host",
+    "remote"
+  ],
+  "scripts": {
+    "setup-project": "pnpm install && cd ./host && pnpm install && cd ../remote && pnpm install",
+    "build": "pnpm  --parallel --filter \"./**\" build",
+    "serve": "pnpm  --parallel --filter \"./**\" preview",
+    "build:watchall": "cd ./host && pnpm build:watch &  cd remote && pnpm run build:watch",
+    "serve:all": "pnpm build:watchall & pnpm run preview:all",
+    "preview:all": "cd ./host && pnpm preview &  cd remote && pnpm run preview"
+  }
+}
